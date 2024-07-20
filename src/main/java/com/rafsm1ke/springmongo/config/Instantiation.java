@@ -2,6 +2,7 @@ package com.rafsm1ke.springmongo.config;
 
 import com.rafsm1ke.springmongo.domain.Post;
 import com.rafsm1ke.springmongo.domain.User;
+import com.rafsm1ke.springmongo.dto.AuthorDTO;
 import com.rafsm1ke.springmongo.repositories.PostRepository;
 import com.rafsm1ke.springmongo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +37,11 @@ public class Instantiation implements CommandLineRunner {
         User alex = new User(null, "Alex Green", "alex@gmail.com");
         User bob = new User(null, "Bob Grey", "bob@gmail.com");
 
-        Post post1 = new Post(null, sdf.parse("21/03/2024"), "Partiu viagem!", "Indo para SP!", maria);
-        Post post2 = new Post(null, sdf.parse("24/04/2024"), "Bom dia!", "Cafezinho quente logo cedo....", maria);
-
         userRepository.saveAll(Arrays.asList(maria, alex, bob));
+
+        Post post1 = new Post(null, sdf.parse("21/03/2024"), "Partiu viagem!", "Indo para SP!", new AuthorDTO(maria));
+        Post post2 = new Post(null, sdf.parse("24/04/2024"), "Bom dia!", "Cafezinho quente logo cedo....", new AuthorDTO(maria));
+
         postRepository.saveAll(Arrays.asList(post1, post2));
     }
 }
