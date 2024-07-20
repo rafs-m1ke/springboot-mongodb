@@ -1,6 +1,7 @@
 package com.rafsm1ke.springmongo.services;
 
 import com.rafsm1ke.springmongo.domain.User;
+import com.rafsm1ke.springmongo.dto.UserDTO;
 import com.rafsm1ke.springmongo.repositories.UserRepository;
 import com.rafsm1ke.springmongo.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,13 @@ public class UserService {
     public User findById(String id) {
         Optional<User> user = repo.findById(id);
         return user.orElseThrow(() -> new ObjectNotFoundException("User not found"));
+    }
+
+    public User insert(User user) {
+        return repo.insert(user);
+    }
+
+    public User fromDTO(UserDTO userDto) {
+        return new User(userDto.getId(), userDto.getName(), userDto.getEmail());
     }
 }
