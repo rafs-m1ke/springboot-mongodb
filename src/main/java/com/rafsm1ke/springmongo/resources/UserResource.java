@@ -5,6 +5,7 @@ import com.rafsm1ke.springmongo.dto.UserDTO;
 import com.rafsm1ke.springmongo.repositories.UserRepository;
 import com.rafsm1ke.springmongo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.repository.Update;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -46,6 +47,14 @@ public class UserResource {
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
         service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody UserDTO userDTO) {
+        User user = service.fromDTO(userDTO);
+        user.setId(id);
+        user = service.update(user);
         return ResponseEntity.noContent().build();
     }
 
