@@ -1,6 +1,7 @@
 package com.rafsm1ke.springmongo.resources;
 
 import com.rafsm1ke.springmongo.domain.User;
+import com.rafsm1ke.springmongo.dto.UserDTO;
 import com.rafsm1ke.springmongo.repositories.UserRepository;
 import com.rafsm1ke.springmongo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,10 @@ public class UserResource {
     private UserService service;
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<UserDTO>> findAll() {
         List<User> list = service.findAll();
-        return ResponseEntity.ok(list);
+        List<UserDTO> listDto = list.stream().map(UserDTO::new).toList();
+        return ResponseEntity.ok(listDto);
     }
 
 }
