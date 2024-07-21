@@ -1,4 +1,17 @@
+#spring:
+#  data:
+#    mongodb:
+#      uri: ${MONGO_URL}
+
+server:
+  port: 8080
+
 spring:
   data:
     mongodb:
-      uri: ${MONGO_URL}
+      host: localhost
+      port: 27019
+      authentication-database: admin
+      username: root
+      password: springmongo
+      database: springboot_mongo
