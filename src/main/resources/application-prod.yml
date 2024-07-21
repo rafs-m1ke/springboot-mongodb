@@ -1,8 +1,8 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://roundhouse.proxy.rlwy.net:21813/test
+      uri: mongodb://${MONGOHOST}:${MONGOPORT}/test
       authentication-database: admin
-      username: mongo
-      password: CaCpGRvEaJPklqhsyFWzXOtdzWRjoYmv
+      username: ${MONGOUSER}
+      password: ${MONGOPASSWORD}
 
