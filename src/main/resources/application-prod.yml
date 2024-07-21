@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://${MONGOHOST}:${MONGOPORT}/test
+      uri: mongodb://${MONGOHOST}:${MONGOPORT}
       authentication-database: admin
       username: ${MONGOUSER}
       password: ${MONGOPASSWORD}
