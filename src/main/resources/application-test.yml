@@ -1,4 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/springboot_mongo
+      uri: mongodb://roundhouse.proxy.rlwy.net:21813/test
+      authentication-database: admin
+      username: mongo
+      password: CaCpGRvEaJPklqhsyFWzXOtdzWRjoYmv

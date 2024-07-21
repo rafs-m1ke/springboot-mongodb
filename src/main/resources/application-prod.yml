@@ -1,17 +1,8 @@
-#spring:
-#  data:
-#    mongodb:
-#      uri: ${MONGO_URL}
-
-server:
-  port: 8080
-
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27019
+      uri: mongodb://roundhouse.proxy.rlwy.net:21813/test
       authentication-database: admin
-      username: root
-      password: springmongo
-      database: springboot_mongo
+      username: mongo
+      password: CaCpGRvEaJPklqhsyFWzXOtdzWRjoYmv
+
