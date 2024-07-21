@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      password: ${MONGOPASSWORD}
+      uri: mongodb://${MONGOHOST}:${MONGOPORT}/springboot_mongo
+      username: ${MONGOUSER}
+

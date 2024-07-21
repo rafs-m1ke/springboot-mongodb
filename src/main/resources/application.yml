@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: springmongo
+
+  profiles:
+    active: test
