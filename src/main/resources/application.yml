@@ -3,4 +3,4 @@ spring:
     name: springmongo
 
   profiles:
-    active: test
+    active: prod
