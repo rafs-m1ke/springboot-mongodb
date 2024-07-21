@@ -1,5 +1,6 @@
 package com.rafsm1ke.springmongo.resources;
 
+import com.rafsm1ke.springmongo.domain.Post;
 import com.rafsm1ke.springmongo.domain.User;
 import com.rafsm1ke.springmongo.dto.UserDTO;
 import com.rafsm1ke.springmongo.repositories.UserRepository;
@@ -57,5 +58,12 @@ public class UserResource {
         user = service.update(user);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping(value = "/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User user = service.findById(id);
+        return ResponseEntity.ok(user.getPosts());
+    }
+
 
 }
